@@ -1,0 +1,27 @@
+# 3. Crear .gitignore apropiado
+@"
+# Node
+node_modules/
+dist/
+.next/
+# Worktrees (son copias locales, NO subirlas)
+.worktrees/
+# Test results
+test-results/
+# System files
+nul
+.DS_Store
+Thumbs.db
+# Environment
+.env
+.env.local
+*.local
+# IDE
+.vscode/
+.idea/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+"@ | Out-File -FilePath .gitignore -Encoding UTF8
