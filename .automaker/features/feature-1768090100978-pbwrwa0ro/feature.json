@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "### CHUNK 1.9: Frontend - Auth Pages\n**Priority**: HIGH | **Estimated Time**: 4-5 hours | **Dependencies**: CHUNK 1.8, CHUNK 1.4\n\n#### Tasks:\n1. Create auth Redux slice:\n   - Login action\n   - Register action\n   - Logout action\n   - Token storage\n\n2. Create Login page:\n   - Email/password form\n   - Validation\n   - Error handling\n   - Redirect on success\n\n3. Create Register page:\n   - Email/username/password form\n   - Validation\n   - Success redirect to character creation\n\n4. Implement protected route wrapper\n\n#### Success Criteria:\n- [ ] User can register new account\n- [ ] User can login and see dashboard\n- [ ] Invalid credentials show error\n- [ ] Protected routes redirect to login\n\n#### Agent Instruction:\n```\nImplement authentication pages for QuestForge frontend:\n- Redux auth slice with login/register/logout\n- Login page with form validation\n- Register page with form validation\n- Protected route component\n- Token storage in localStorage\n- Redirect flows",
+  "title": "Add authentication pages and Redux slice",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "feature/feature/feature/main-1768090045527-m2sp-1768090074964-54ci-1768090100330-9wzf",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "auto",
+  "titleGenerating": false,
+  "status": "completed",
+  "id": "feature-1768090100978-pbwrwa0ro",
+  "descriptionHistory": [
+    {
+      "description": "### CHUNK 1.9: Frontend - Auth Pages\n**Priority**: HIGH | **Estimated Time**: 4-5 hours | **Dependencies**: CHUNK 1.8, CHUNK 1.4\n\n#### Tasks:\n1. Create auth Redux slice:\n   - Login action\n   - Register action\n   - Logout action\n   - Token storage\n\n2. Create Login page:\n   - Email/password form\n   - Validation\n   - Error handling\n   - Redirect on success\n\n3. Create Register page:\n   - Email/username/password form\n   - Validation\n   - Success redirect to character creation\n\n4. Implement protected route wrapper\n\n#### Success Criteria:\n- [ ] User can register new account\n- [ ] User can login and see dashboard\n- [ ] Invalid credentials show error\n- [ ] Protected routes redirect to login\n\n#### Agent Instruction:\n```\nImplement authentication pages for QuestForge frontend:\n- Redux auth slice with login/register/logout\n- Login page with form validation\n- Register page with form validation\n- Protected route component\n- Token storage in localStorage\n- Redirect flows",
+      "timestamp": "2026-01-11T00:08:21.049Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-11T00:09:09.908Z",
+  "updatedAt": "2026-01-11T00:19:44.236Z",
+  "justFinishedAt": "2026-01-11T00:19:44.236Z"
+}

@@ -5,9 +5,9 @@ relevantTo: [error, bug, fix, issue, problem]
 importance: 0.9
 relatedFiles: []
 usageStats:
-  loaded: 54
-  referenced: 1
-  successfulFeatures: 1
+  loaded: 60
+  referenced: 7
+  successfulFeatures: 7
 ---
 # Gotchas
 
@@ -31,3 +31,18 @@ Mistakes and edge cases to avoid. These are lessons learned from past issues.
 - **Situation:** Database migrations need to work with async SQLAlchemy
 - **Root cause:** Standard Alembic configuration assumes synchronous database operations, causing failures when using async FastAPI
 - **How to avoid:** Required custom engine configuration and connection handling but enables database schema management
+
+#### [Gotcha] Celery beat schedules based on UTC by default, causing unexpected local timing (2026-01-11)
+- **Situation:** Scheduled daily reset running at midnight UTC instead of local midnight
+- **Root cause:** Root cause: Celery uses UTC timezone for task scheduling regardless of server timezone
+- **How to avoid:** UTC ensures consistent behavior across deployments, but requires timezone awareness
+
+#### [Gotcha] Celery task retry logic can cause duplicate executions if not handled properly (2026-01-11)
+- **Situation:** Failed tasks automatically retry, but daily reset must avoid processing same character twice
+- **Root cause:** Root cause: Task retries occur without checking existing completion status
+- **How to avoid:** Automatic retry ensures reliability but requires idempotent task design
+
+#### [Gotcha] Windows path length issue breaking npm install (2026-01-11)
+- **Situation:** Long file paths in Windows causing npm installation failure
+- **Root cause:** npm struggles with paths over 260 characters in Windows environments during symlinking
+- **How to avoid:** Cleaner git structure but requires user intervention

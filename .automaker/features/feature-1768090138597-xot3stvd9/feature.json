@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "### CHUNK 1.11: Frontend - Task Management\n**Priority**: HIGH | **Estimated Time**: 6-7 hours | **Dependencies**: CHUNK 1.10, CHUNK 1.6\n\n#### Tasks:\n1. Create tasks Redux slice:\n   - Fetch tasks\n   - Create task\n   - Complete task\n   - Filter tasks\n\n2. Create Task List page:\n   - Tabs: Dailies, Todos, Habits\n   - Task cards with difficulty indicator\n   - Complete button with animation\n   - Filter/sort options\n\n3. Create Task Form component:\n   - Title, description\n   - Type selection\n   - Difficulty selection\n   - Repeat days (for dailies)\n   - Due date (for todos)\n\n4. Create Task Item component:\n   - Task info display\n   - Complete action\n   - Edit/delete actions\n   - Completion animation\n\n#### Success Criteria:\n- [ ] Tasks display by category\n- [ ] Task creation works with all types\n- [ ] Task completion updates character stats\n- [ ] Completion animation shows rewards\n\n#### Agent Instruction:\n```\nImplement task management UI for QuestForge:\n- Task list with tabs for Dailies, Todos, Habits\n- Task creation form with type, difficulty, schedule\n- Task completion with reward animation\n- Redux integration for state\n- Optimistic updates with React Query\n- Use Framer Motion for completion animations",
+  "title": "Implement task management system with Redux integration",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "feature/feature/feature/feature/feature/main-1768090045527-m2sp-1768090074964-54ci-1768090100330-9wzf-1768090115998-x006-1768090137935-iikc",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "auto",
+  "titleGenerating": false,
+  "status": "completed",
+  "id": "feature-1768090138597-xot3stvd9",
+  "descriptionHistory": [
+    {
+      "description": "### CHUNK 1.11: Frontend - Task Management\n**Priority**: HIGH | **Estimated Time**: 6-7 hours | **Dependencies**: CHUNK 1.10, CHUNK 1.6\n\n#### Tasks:\n1. Create tasks Redux slice:\n   - Fetch tasks\n   - Create task\n   - Complete task\n   - Filter tasks\n\n2. Create Task List page:\n   - Tabs: Dailies, Todos, Habits\n   - Task cards with difficulty indicator\n   - Complete button with animation\n   - Filter/sort options\n\n3. Create Task Form component:\n   - Title, description\n   - Type selection\n   - Difficulty selection\n   - Repeat days (for dailies)\n   - Due date (for todos)\n\n4. Create Task Item component:\n   - Task info display\n   - Complete action\n   - Edit/delete actions\n   - Completion animation\n\n#### Success Criteria:\n- [ ] Tasks display by category\n- [ ] Task creation works with all types\n- [ ] Task completion updates character stats\n- [ ] Completion animation shows rewards\n\n#### Agent Instruction:\n```\nImplement task management UI for QuestForge:\n- Task list with tabs for Dailies, Todos, Habits\n- Task creation form with type, difficulty, schedule\n- Task completion with reward animation\n- Redux integration for state\n- Optimistic updates with React Query\n- Use Framer Motion for completion animations",
+      "timestamp": "2026-01-11T00:08:58.653Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-11T00:09:03.881Z",
+  "updatedAt": "2026-01-11T00:23:39.144Z",
+  "justFinishedAt": "2026-01-11T00:23:39.144Z"
+}

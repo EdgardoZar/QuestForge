@@ -5,9 +5,9 @@ relevantTo: [architecture]
 importance: 0.7
 relatedFiles: []
 usageStats:
-  loaded: 0
-  referenced: 0
-  successfulFeatures: 0
+  loaded: 1
+  referenced: 1
+  successfulFeatures: 1
 ---
 # architecture
 
@@ -58,3 +58,55 @@ usageStats:
 - **Rejected:** Standard REST approach would use DELETE for completion, but this breaks UX for task management apps
 - **Trade-offs:** Added complexity to service layer (separate complete/uncomplete methods vs single delete operation) but greatly improved usability
 - **Breaking if changed:** If changed to standard DELETE, users lose ability to undo completions, causing frustration and requiring additional UI workarounds
+
+### Chunked development approach with explicit dependency ordering (2026-01-10)
+- **Context:** Large gamification platform with complex dependencies between authentication, characters, tasks, and daily systems
+- **Why:** Prevents circular dependencies and allows incremental testing; each chunk can be validated independently
+- **Rejected:** Monolithic development or random feature order
+- **Trade-offs:** Requires careful planning overhead but reduces integration complexity
+- **Breaking if changed:** Breaking any chunk dependency order would create broken API contracts
+
+### Separate Celery worker and beat processes with dedicated entry points (2026-01-11)
+- **Context:** Initial approach considered running worker and beat in same process, but this creates coupling issues
+- **Why:** Separate processes allow independent scaling, monitoring, and lifecycle management
+- **Rejected:** Single process approach would make it impossible to scale workers independently of beat scheduler
+- **Trade-offs:** More complex orchestration vs better reliability and scalability
+- **Breaking if changed:** Changes to worker lifecycle would affect beat scheduling if combined
+
+### Containerized entire Celery stack with Flower monitoring (2026-01-11)
+- **Context:** Initial approach considered running Redis and Celery locally
+- **Why:** Docker provides consistent environment, resource isolation, and easy monitoring via Flower
+- **Rejected:** Local deployment would create environment inconsistencies and monitoring complexity
+- **Trade-offs:** Deployment complexity vs reproducibility and production readiness
+- **Breaking if changed:** Removing Docker would break monitoring and require manual service coordination
+
+### Redux Toolkit + React Query hybrid approach instead of React Query only (2026-01-11)
+- **Context:** Managing both cached API data and local application state (filters, UI state)
+- **Why:** React Query for server state caching/optimistic updates, Redux Toolkit for complex local state (filters, form state) and derived state
+- **Rejected:** Using React Query for everything would struggle with complex local state management and derived calculations
+- **Trade-offs:** Increased complexity for state management setup vs better separation of concerns and maintainability
+- **Breaking if changed:** Removing Redux would require migrating filter state, form state, and complex UI logic to React Query, risking performance issues on complex state updates
+
+#### [Gotcha] Mock character data structure mismatch with API contract (2026-01-11)
+- **Situation:** Frontend built with static mock data before API spec finalization
+- **Root cause:** Developers assumed character model structure, leading to potential interface mismatches
+- **How to avoid:** Faster development vs risk of breaking changes when API contract is finalized
+
+### Dual state management with Redux Toolkit + React Query (2026-01-11)
+- **Context:** Client-side state vs server state management
+- **Why:** Redux for persistent UI/auth state, React Query for server/cached data with automatic refetching and stale-while-revalidate
+- **Rejected:** Using only Redux for everything (would require manual caching/refetch logic)
+- **Trade-offs:** Easier server data handling but adds complexity with two state systems
+- **Breaking if changed:** Tasks would lose automatic refetching and caching capabilities
+
+#### [Pattern] Multi-stage Docker build with nginx for production (2026-01-11)
+- **Problem solved:** Optimized container image size and serving performance
+- **Why this works:** Separate build and production stages reduce final image size and serve static files efficiently
+- **Trade-offs:** Smaller production images but more complex Docker configuration
+
+### Used Redux Toolkit with async thunks instead of local state (2026-01-11)
+- **Context:** Character data management across multiple pages
+- **Why:** Ensures consistent state management across components and provides proper loading/error states
+- **Rejected:** Local useState would have led to prop drilling and inconsistent state management across the app
+- **Trade-offs:** More complex setup but better maintainability and predictable state
+- **Breaking if changed:** Switching to local state would break the current data flow and require significant refactoring of component connections

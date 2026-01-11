@@ -5,9 +5,9 @@ relevantTo: [database]
 importance: 0.7
 relatedFiles: []
 usageStats:
-  loaded: 0
-  referenced: 0
-  successfulFeatures: 0
+  loaded: 1
+  referenced: 1
+  successfulFeatures: 1
 ---
 # database
 
@@ -65,3 +65,20 @@ usageStats:
 - **Problem solved:** XP/gold rewards needed to encourage consistent user engagement
 - **Why this works:** Centralized calculation ensures consistency across all task completion paths and allows easy adjustment of reward mechanics
 - **Trade-offs:** Business logic in service layer vs pure data access pattern, but necessary for reward system consistency
+
+### PostgreSQL with automatic level-up triggers instead of application-level logic (2026-01-10)
+- **Context:** Character progression system requiring XP calculation and level thresholds
+- **Why:** Ensures data consistency and prevents race conditions; database enforces rules without application coordination
+- **Rejected:** Application-level level-up checks in API endpoints
+- **Trade-offs:** More complex database setup but simpler application logic; ensures consistency even if multiple instances run
+- **Breaking if changed:** Removing PostgreSQL would require complete rewrite of progression logic
+
+#### [Pattern] Separate database session management from Celery configuration (2026-01-11)
+- **Problem solved:** Need to handle database connections in Celery workers reliably
+- **Why this works:** Workers may be restarted frequently, creating new sessions each time prevents connection leaks
+- **Trade-offs:** More boilerplate code vs better resource management and reliability
+
+#### [Gotcha] Character stats updates require transactional consistency (2026-01-11)
+- **Situation:** Task completion updates both task status and character stats
+- **Root cause:** Race conditions could occur if multiple tasks complete simultaneously, updating stats inconsistently
+- **How to avoid:** Added backend complexity for atomic operations vs data consistency integrity

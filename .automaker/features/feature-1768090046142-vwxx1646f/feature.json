@@ -1,0 +1,31 @@
+{
+  "category": "Uncategorized",
+  "description": "### CHUNK 1.7: Daily Reset System (Celery)\n**Priority**: HIGH | **Estimated Time**: 4-5 hours | **Dependencies**: CHUNK 1.6\n\n#### Tasks:\n1. Setup Celery with Redis broker\n\n2. Create daily reset task:\n   - Regenerate Mana to 100%\n   - Check incomplete dailies → -10 HP each\n   - Update streak (increment if all dailies done, reset otherwise)\n   - Reset daily task completion flags\n   - Generate daily stats record\n\n3. Setup Celery Beat schedule (00:00 user timezone)\n\n4. Create notification triggers (placeholder for Telegram)\n\n#### Success Criteria:\n- [ ] Celery worker processes tasks\n- [ ] Daily reset runs at scheduled time\n- [ ] HP decreases for missed dailies\n- [ ] Mana regenerates to max\n- [ ] Streak updates correctly\n\n#### Agent Instruction:\n```\nImplement the Celery daily reset system for QuestForge:\n- Celery + Redis configuration\n- Daily reset task at midnight:\n  - Mana regeneration (100%)\n  - HP decay (-10 per missed daily)\n  - Streak calculation\n  - Daily stats generation\n- Celery Beat scheduling",
+  "title": "Add Celery daily reset system",
+  "images": [],
+  "imagePaths": [],
+  "textFilePaths": [],
+  "skipTests": true,
+  "model": "opus",
+  "thinkingLevel": "none",
+  "reasoningEffort": "none",
+  "branchName": "feature/main-1768090045527-m2sp",
+  "priority": 2,
+  "planningMode": "skip",
+  "requirePlanApproval": false,
+  "dependencies": [],
+  "workMode": "auto",
+  "titleGenerating": false,
+  "status": "completed",
+  "id": "feature-1768090046142-vwxx1646f",
+  "descriptionHistory": [
+    {
+      "description": "### CHUNK 1.7: Daily Reset System (Celery)\n**Priority**: HIGH | **Estimated Time**: 4-5 hours | **Dependencies**: CHUNK 1.6\n\n#### Tasks:\n1. Setup Celery with Redis broker\n\n2. Create daily reset task:\n   - Regenerate Mana to 100%\n   - Check incomplete dailies → -10 HP each\n   - Update streak (increment if all dailies done, reset otherwise)\n   - Reset daily task completion flags\n   - Generate daily stats record\n\n3. Setup Celery Beat schedule (00:00 user timezone)\n\n4. Create notification triggers (placeholder for Telegram)\n\n#### Success Criteria:\n- [ ] Celery worker processes tasks\n- [ ] Daily reset runs at scheduled time\n- [ ] HP decreases for missed dailies\n- [ ] Mana regenerates to max\n- [ ] Streak updates correctly\n\n#### Agent Instruction:\n```\nImplement the Celery daily reset system for QuestForge:\n- Celery + Redis configuration\n- Daily reset task at midnight:\n  - Mana regeneration (100%)\n  - HP decay (-10 per missed daily)\n  - Streak calculation\n  - Daily stats generation\n- Celery Beat scheduling",
+      "timestamp": "2026-01-11T00:07:26.200Z",
+      "source": "initial"
+    }
+  ],
+  "startedAt": "2026-01-11T00:09:06.883Z",
+  "updatedAt": "2026-01-11T00:18:45.344Z",
+  "justFinishedAt": "2026-01-11T00:18:45.344Z"
+}
